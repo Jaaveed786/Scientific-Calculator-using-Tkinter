@@ -1,3 +1,4 @@
+# Import all packages we want
 from tkinter import *
 import math
 import numpy as np
@@ -5,6 +6,7 @@ import numpy as np
 '''
 Functions
 '''
+
 # Function to add in the entry of text display
 def button_click(char):
     global calc_operator
@@ -109,6 +111,7 @@ def button_equal():
 '''
 Variables
 '''
+
 sin, cos, tan = math.sin, math.cos, math.tan
 log, ln = math.log10, math.log
 e = math.exp
@@ -122,8 +125,7 @@ tk_calc.title("Scientific Calculator")
 calc_operator = ""
 text_input = StringVar()
 
-text_display = Entry(tk_calc, font=('sans-serif', 20, 'bold'), textvariable=text_input,
-                     bd=5, insertwidth = 5, bg='#BBB', justify='right').grid(columnspan=5, padx = 10, pady = 15)
+text_display = Entry(tk_calc, font=('sans-serif', 20, 'bold'), textvariable=text_input,bd=5, insertwidth = 5, bg='#BBB', justify='right').grid(columnspan=5, padx = 10, pady = 15)
 
 button_params = {'bd':5, 'fg':'#BBB', 'bg':'#3C3636', 'font':('sans-serif', 20, 'bold')}
 button_params_main = {'bd':5, 'fg':'#000', 'bg':'#BBB', 'font':('sans-serif', 20, 'bold')}
@@ -131,59 +133,58 @@ button_params_main = {'bd':5, 'fg':'#000', 'bg':'#BBB', 'font':('sans-serif', 20
 '''
 Buttons
 '''
+
 #--1st row--
 # Absolute value of a number
-abs_value = Button(tk_calc, button_params, text='abs',
-                   command=lambda:button_click('abs(')).grid(row=1, column=0, sticky="nsew")
+abs_value = Button(tk_calc, button_params, text='abs', command=lambda:button_click('abs(')).grid(row=1, column=0, sticky="nsew")
+
 # Remainder of a division
-modulo = Button(tk_calc, button_params, text='mod',
-                command=lambda:button_click('%')).grid(row=1, column=1, sticky="nsew")
+modulo = Button(tk_calc, button_params, text='mod', command=lambda:button_click('%')).grid(row=1, column=1, sticky="nsew")
+
 # Integer division quotient
-int_div = Button(tk_calc, button_params, text='div',
-                 command=lambda:button_click('//')).grid(row=1, column=2, sticky="nsew")
+int_div = Button(tk_calc, button_params, text='div',command=lambda:button_click('//')).grid(row=1, column=2, sticky="nsew")
+
 # Factorial of a number
-factorial_button = Button(tk_calc, button_params, text='x!',
-                   command=fact_func).grid(row=1, column=3, sticky="nsew")
+factorial_button = Button(tk_calc, button_params, text='x!',command=fact_func).grid(row=1, column=3, sticky="nsew")
+
 # Euler's number e
-eulers_num = Button(tk_calc, button_params, text='e',
-                    command=lambda:button_click(str(math.exp(1)))).grid(row=1, column=4, sticky="nsew")
+eulers_num = Button(tk_calc, button_params, text='e',command=lambda:button_click(str(math.exp(1)))).grid(row=1, column=4, sticky="nsew")
 
 #--2nd row--
 # Sine of an angle in degrees
-sine = Button(tk_calc, button_params, text='sin',
-             command=trig_sin).grid(row=2, column=0, sticky="nsew")
+
+sine = Button(tk_calc, button_params, text='sin', command=trig_sin).grid(row=2, column=0, sticky="nsew")
+
 # Cosine of an angle in degrees
-cosine = Button(tk_calc, button_params, text='cos',
-             command=trig_cos).grid(row=2, column=1, sticky="nsew")
+cosine = Button(tk_calc, button_params, text='cos', command=trig_cos).grid(row=2, column=1, sticky="nsew")
+
 # Tangent of an angle in degrees
-tangent = Button(tk_calc, button_params, text='tan',
-             command=trig_tan).grid(row=2, column=2, sticky="nsew")
+tangent = Button(tk_calc, button_params, text='tan', command=trig_tan).grid(row=2, column=2, sticky="nsew")
+
 # Cotangent of an angle in degrees
-cotangent = Button(tk_calc, button_params, text='cot',
-             command=trig_cot).grid(row=2, column=3, sticky="nsew")
+cotangent = Button(tk_calc, button_params, text='cot', command=trig_cot).grid(row=2, column=3, sticky="nsew")
+
 # Pi(3.14...) number 
-pi_num = Button(tk_calc, button_params, text='π',
-                command=lambda:button_click(str(math.pi))).grid(row=2, column=4, sticky="nsew")
+pi_num = Button(tk_calc, button_params, text='π', command=lambda:button_click(str(math.pi))).grid(row=2, column=4, sticky="nsew")
 
 #--3rd row--
 # Power of 2
-second_power = Button(tk_calc, button_params, text='x\u00B2',
-             command=lambda:button_click('**2')).grid(row=3, column=0, sticky="nsew")
+
+second_power = Button(tk_calc, button_params, text='x\u00B2', command=lambda:button_click('**2')).grid(row=3, column=0, sticky="nsew")
+
 # Power of 3
-third_power = Button(tk_calc, button_params, text='x\u00B3',
-             command=lambda:button_click('**3')).grid(row=3, column=1, sticky="nsew")
+third_power = Button(tk_calc, button_params, text='x\u00B3', command=lambda:button_click('**3')).grid(row=3, column=1, sticky="nsew")
+
 # Power of n
-nth_power = Button(tk_calc, button_params, text='x^n',
-             command=lambda:button_click('**')).grid(row=3, column=2, sticky="nsew")
+nth_power = Button(tk_calc, button_params, text='x^n', command=lambda:button_click('**')).grid(row=3, column=2, sticky="nsew")
 # Inverse number
-inv_power = Button(tk_calc, button_params, text='x\u207b\xb9',
-             command=lambda:button_click('**(-1)')).grid(row=3, column=3, sticky="nsew")
+inv_power = Button(tk_calc, button_params, text='x\u207b\xb9', command=lambda:button_click('**(-1)')).grid(row=3, column=3, sticky="nsew")
 # Powers of 10
-tens_powers = Button(tk_calc, button_params, text='10^x', font=('sans-serif', 15, 'bold'),
-                     command=lambda:button_click('10**')).grid(row=3, column=4, sticky="nsew")
+tens_powers = Button(tk_calc, button_params, text='10^x', font=('sans-serif', 15, 'bold'), command=lambda:button_click('10**')).grid(row=3, column=4, sticky="nsew")
 
 #--4th row--
 # Square root of a number
+
 square_root = Button(tk_calc, button_params, text='\u00B2\u221A',
                      command=square_root).grid(row=4, column=0, sticky="nsew")
 # Third root of a number
